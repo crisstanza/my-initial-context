@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE project>
+
+<project name="my-initial-context" basedir="." default="build">
+
+	<property name='project.version' value='0.0.1-SNAPSHOT'/>
+
+	<target name="clean">
+		<delete dir="classes" />
+		<delete dir="bin" />
+	</target>
+
+	<target name="build" depends="clean">
+		<mkdir dir="classes" />
+		<javac includeantruntime="false" debug="true" srcdir="src" destdir="classes" />
+	</target>
+
+	<target name="export">
+		<mkdir dir="bin" />
+		<jar destfile="bin/${ant.project.name}-${project.version}.jar" basedir="classes" />
+	</target>
+
+</project>
+
